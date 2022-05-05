@@ -1,52 +1,67 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
 }
-:root{
+:root {
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
-  --paragraph:  hsl(210, 9%, 31%);
+  --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
 
-
-
+  --nav-height: 7.2rem;
 
   font-size: 62.5%; /* 1rem=10px*/
 }
 
-body{
-  font-family:'DM Sans';
+body {
+  font-family: 'DM Sans';
   font-size: 1.6rem;
   text-align: center;
 }
-header{
+.wrapper {
   width: 37.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top:4.1rem;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
 }
-header img{
+/* ====== HEADER =======================*/
+header {
+  margin-top: calc(4.1rem + var(--nav-height));
+}
+header img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
   object-position: 0rem 2rem;
 }
-h4{
-  font-size:1.4rem;
+/* Criando um elemento html em CSS*/
+header::before {
+  content: '';
+  /* 100 largura para viewport*/
+  width: 100vw;
+  height: calc(108rem + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+header h4 {
+  font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
 
-h1{
-  font-size:3.4rem;
+header h1 {
+  font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 2.4rem;
-} 
- 
-p{
-  font-size:1.8rem;
+}
+
+header p {
+  font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
   color: var(--paragraph);
@@ -54,7 +69,7 @@ p{
   text-justify: auto;
 }
 
-button{
+header button {
   background-color: var(--primary-color);
   border: none;
   border-radius: 4rem;
@@ -75,7 +90,7 @@ button{
   margin: auto;
 }
 
-.stats{
+.stats {
   width: 32.7rem;
   padding-block: 4rem;
   margin-inline: auto;
@@ -86,18 +101,44 @@ button{
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
-  
-} 
-.stat h3{
+}
+.stat h3 {
   font-size: 4.8rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 0.4rem;
 }
-.stat p{
+.stat p {
   margin: 0;
   color: var(--primary-color);
   font-size: 1.6rem;
   line-height: 150%;
+}
 
+/* ========== NAV =================== */
+nav {
+  display: flex;
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  /*Converte a posição do menu fixo para o meio*/
+  transform: translateX(-50%);
+}
+nav .wrapper {
+  /* Deixa o elemento um ao lado do outro  ( DISPLAY FLEX)*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav.scroll {
+  background: var(--primary-color);
+  width: 100vw;
+}
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+}
+nav.scroll svg:nth-child(2) path {
+  stroke: white;
 }
