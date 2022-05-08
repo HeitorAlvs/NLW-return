@@ -1,3 +1,5 @@
+/* ctrl a + ctrl k + ctrl 1, para organizar*/
+
 * {
   margin: 0;
   padding: 0;
@@ -39,100 +41,39 @@ body {
 ul {
   list-style: none;
 }
+img {
+  max-width: 100%;
+}
 section {
   padding-block: 10rem;
 }
-/* ====== HEADER =======================*/
-header {
-  padding-top: calc(4.1rem + var(--nav-height));
-}
-header img {
-  width: 26.4rem;
-  display: block;
-  margin-inline: auto;
-  object-position: 0rem 2rem;
-}
-/* Criando um elemento html em CSS*/
-header::before {
-  content: '';
-  /* 100 largura para viewport*/
-  width: 100%;
-  height: calc(108rem + var(--nav-height));
-  background-color: var(--brand-light);
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-header h4 {
+section header h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
 }
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+  margin-bottom: 6rem;
 
-header h1 {
+}
+section header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
-
-header p {
-  font-size: 1.8rem;
-  line-height: 150%;
+section .content p {
   font-weight: 400;
-  color: var(--paragraph);
-  margin-bottom: 3.2rem;
-  text-justify: auto;
-}
-
-header button {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 4rem;
-
-  margin-bottom: 6rem;
-
-  height: 6.2rem;
-  width: 26.3rem;
-
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  margin: auto;
-}
-
-.stats {
-  width: 32.7rem;
-  padding-block: 4rem;
-  margin-inline: auto;
-  border: 1px solid --brand-light;
-  border-radius: 0.6rem;
-  background: var(--brand-beige);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6rem;
-}
-.stat h3 {
-  font-size: 4.8rem;
-  color: var(--headline);
-  line-height: 130%;
-  margin-bottom: 0.4rem;
-}
-.stat p {
-  margin: 0;
-  color: var(--primary-color);
   font-size: 1.6rem;
   line-height: 150%;
+  color: var(--paragraph);
 }
-
 /* ========== NAV =================== */
 nav {
   display: flex;
@@ -140,9 +81,8 @@ nav {
 
   position: fixed;
   top: 0;
-  left: 50%;
-  /*Converte a posição do menu fixo para o meio*/
-  transform: translateX(-50%);
+  z-index: 100;
+  width: 100vw;
 }
 nav .wrapper {
   /* Deixa o elemento um ao lado do outro  ( DISPLAY FLEX)*/
@@ -152,9 +92,8 @@ nav .wrapper {
 }
 nav.scroll {
   background: var(--primary-color);
-  width: 100vw;
 }
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: white;
 }
 nav.scroll button path {
@@ -166,12 +105,13 @@ nav button {
   border: none;
   cursor: pointer;
 }
+
 /* ========== Menu-expended =================== */
 body.menu-expanded {
   overflow: hidden;
 }
 body.menu-expanded > :not(nav) {
-  display: none;
+  visibility: hidden;
 }
 .menu,
 .close-menu,
@@ -184,7 +124,10 @@ body.menu-expanded .close-menu {
   opacity: 1;
   visibility: visible;
 }
-
+.menu {
+  /*Desaparecer o menu*/
+  transform: translateY(100%);
+}
 body.menu-expanded .menu {
   position: fixed;
   top: 0;
@@ -193,10 +136,13 @@ body.menu-expanded .menu {
   width: 100vw;
   height: 100vh;
   padding-top: var(--nav-height);
+
+  /*Suavidade na abertura do menu*/
+  transition: transform 300ms;
+  /*Aparecer o menu novamente*/
+  transform: translateY(0%);
 }
-body.menu-expanded nav {
-  position: relative;
-}
+
 .menu ul:nth-child(1) {
   display: flex;
   flex-direction: column;
@@ -242,20 +188,87 @@ body.menu-expanded .logo path {
 body.menu-expanded button path {
   stroke: white;
 }
-/*============== SERVICES ===================================*/
-#services header h4 {
-  font-size: 1.4rem;
-  line-height: 150%;
-  /* identical to box height, or 21px */
-  letter-spacing: 0.08rem;
-  text-transform: uppercase;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
+/* ====== #HOME =======================*/
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
 }
-#services header h2 {
-  font-size: 3rem;
-  line-height: 3.9rem;
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0rem 2rem;
+}
+/* Criando um elemento html em CSS*/
+#home::before {
+  content: '';
+  /* 100 largura para viewport*/
+  width: 100%;
+  height: calc(108rem + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#home p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+  margin-bottom: 3.2rem;
+  text-justify: auto;
+}
+
+#home button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+
+  margin-bottom: 6rem;
+
+  height: 6.2rem;
+  width: 26.3rem;
+
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin: auto;
+}
+
+#home .stats {
+  width: 32.7rem;
+  padding-block: 4rem;
+  margin-inline: auto;
+  border: 1px solid --brand-light;
+  border-radius: 0.6rem;
+  background: var(--brand-beige);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+}
+#home .stat h3 {
+  font-size: 4.8rem;
   color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+}
+#home.stat p {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+/*============== SERVICES ===================================*/
+#services header h2 {
   margin-bottom: 6rem;
 }
 #services .cards {
@@ -274,4 +287,17 @@ body.menu-expanded button path {
 #services.card h3 {
   /*margem em cima e em baixo*/
   margin-block: 1.6rem;
+}
+
+/*============== ABOUT ===================================*/
+#about {
+  text-align: left;
+  background-color: var(--brand-beige) ;
+}
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
 }
