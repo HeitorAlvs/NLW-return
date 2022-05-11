@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 :root {
-  --hue: 170;
+  --hue: 280;
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
@@ -119,9 +119,9 @@ button.open-menu path[stroke*='#00856F'],
 #contact li path {
   stroke: var(--primary-color);
 }
+body.menu-expanded #navigation .logo path,
 /*Seletor css por fill utilizando path [*=]*/
-
-#navigation.scroll .logo path[fill*='#00856F'] {
+#navigation.scroll .logo path {
   fill: white;
 }
 #navigation.scroll button.open-menu path[stroke*='#00856F'] {
@@ -145,12 +145,6 @@ nav .wrapper {
 }
 nav.scroll {
   background: var(--primary-color);
-}
-nav.scroll .logo path {
-  fill: white;
-}
-nav.scroll button path {
-  stroke: white;
 }
 
 nav button {
