@@ -598,7 +598,7 @@ footer .social-links {
     }
     #about .content p {
       margin-bottom: 0;
-    }
+    } 
       /*======================== CONTACT =================================================*/
     #contact .wrapper {
       grid-template-columns: 1fr 57.7rem;
